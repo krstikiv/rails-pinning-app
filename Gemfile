@@ -46,3 +46,5 @@ end
 
 gem 'rspec'
 gem 'rspec-rails'
+gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
+gem 'rails_12factor'
