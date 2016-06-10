@@ -11,15 +11,15 @@
           <div class="pin">
             <div class="pin-header row">
              <div class="logo-thumbnail col-xs-3">
-              <% if "#{pin.resource_type}" == "rails" %>
-      <%= image_tag('rails-logo-thumbnail.png') %>
-    <% elsif "#{pin.resource_type}" == "ruby" %>
-      <%= image_tag('ruby-logo-thumbnail.png') %>                
-    <% end %>
+                <% if "#{pin.resource_type}" == "rails" %>
+                  <%= image_tag('rails-logo-thumbnail.png') %>
+                <% elsif "#{pin.resource_type}" == "ruby" %>
+                  <%= image_tag('ruby-logo-thumbnail.png') %>                
+                <% end %>
               </div>
               <div class="col-xs-9">
               <h4>
-                <a href="<%= pin_path(pin) %>">
+                <a href="<%= pin_by_name_path(slug: pin.slug) %>">
                   <%= "#{pin.title}" %>
                 </a>
               </h4>
