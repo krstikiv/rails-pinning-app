@@ -48,3 +48,4 @@ gem 'rspec'
 gem 'rspec-rails'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
 gem 'rails_12factor'
+gem 'rack-timeout', '0.3.2'
