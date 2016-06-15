@@ -25,7 +25,7 @@ RSpec.describe PinsController do
         url: "http://railswizard.org", 
         slug: "rails-wizard", 
         text: "A fun and helpful Rails Resource",
-        resource_type: "rails"}    
+        category_id: "rails"}    
     end
     
     after(:each) do
@@ -67,8 +67,79 @@ RSpec.describe PinsController do
       post :create, pin: @pin_hash
       expect(assigns[:errors].present?).to be(true)
     end    
-    
   end
 
-	end
+  describe "GET edit" do
+      before(:each) do
+      @pin = Pin.find(1)
+      end
+      #responds with success
+    it 'responds with successfully' do
+      get :edit, id: @pin.id
+      expect(response.success?).to be(true)
+    end
+        #renders the edit template
+    it 'renders the edit view' do
+     get :edit, id: @pin.id      
+      expect(response).to render_template(:edit)
+    end
+      #assigns an instance variable called @pin to the Pin with the appropriate id
+    it 'assigns an instance variable @pin to the Pin' do
+      get :edit, id: @pin.id 
+      expect(assigns(:pin)).to eq(@pin)
+    end
+  end
+
+  describe "PUT update" do
+    before(:each) do
+      @pin = Pin.find(1)
+      @pin_hash = { 
+        title: "Rails Wizard",
+        url: "http://railswizard.org",
+        slug: "rails-wizard",
+        text: "A fun and helpful Rails Resource",
+        category_id: "1"
+        }
+      @error_hash = {
+        title: nil,
+        url: 1,
+        slug: 3,
+        text: 2,
+        category_id: nil
+       }
+    end
+  
+  it 'responds with success' do
+      put :update, id: @pin.id, pin: @pin_hash 
+      expect(response).to redirect_to(pin_url(assigns(:pin)))
+    end
+  
+  it 'updates a pin' do
+    put :update, id: @pin.id, pin: @pin_hash
+    expect(Pin.find(@pin.id).present?).to be(true)
+  end
+  
+  it 'redirects to the show view' do
+      put :update, id: @pin.id, pin: @pin_hash
+      expect(response).to redirect_to(pin_url(assigns(:pin)))
+    end
+  
+  it 'redisplays edit on error' do
+      # Need to pass in an error of Pin
+      # using my @error_hash
+            
+      put :update, id: @pin.id, pin: @error_hash
+      expect(response).to render_template(:edit)
+    end
+    
+    it 'assigns the @errors instance variable on error' do
+      # Need to pass in an error of Pin
+      # using my @error_hash
+      
+      put :update, id: @pin.id, pin: @error_hash
+      expect(assigns[:errors].present?).to be(true)
+    end
+    
+     
+  end
 end
