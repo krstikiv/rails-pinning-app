@@ -12,22 +12,21 @@
 				</ul>
 			</div>
 		<% end %>
-		<%= form_tag('/login', class: 'col-md-8 form-horizontal') do %>
+		<%= form_tag('/login') do %>
 			<div class="form-group">
-				<label for="email" class="col-md-2 control-label">Email:</label>
-				<div class="col-md-4">
+				<label for="email" class="control-label">Email:</label>
+				<div class="group-control">
 					<%= email_field_tag 'email', nil, placeholder: 'email@example.com', class: 'form-control' %>
 				</div>
 			</div>
 			<div class="form-group">
-				<label for="password" class="col-md-2 control-label">Password:</label>
-				<div class="col-md-4">
+				<label for="password" class="control-label">Password:</label>
+				<div class="group-control">
 					<%= password_field_tag 'password', nil, class: 'form-control' %>
 				</div>
 			</div>
 			<div class="form-group">
-				<div class="col-md-2"></div>
-				<div class="col-md-4">
+				<div class="group-control">
 					<%= button_tag "Sign in", data: { disable_with: 'Please wait...' }, class: 'btn btn-default' %>
 				</div>
 			</div>

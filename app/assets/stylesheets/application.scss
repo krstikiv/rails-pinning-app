@@ -24,3 +24,13 @@ div .error {
 	color: red;
  	}
 }
+
+.panel {
+	width: 400px;
+	margin: 0 auto;
+	text-align: center;
+	.panel-heading {
+		font-weight: bold;
+		font-size: 25px;
+	}
+}
