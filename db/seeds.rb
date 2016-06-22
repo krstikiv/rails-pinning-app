@@ -38,3 +38,9 @@ Pin.create(
     lessons and solve problems, all in your browser!",
   slug: "ruby-monk",
   category_id: "ruby")
+Pin.create(
+  title: 'Ruby Test', 
+  url: 'http://rubymonk.com', 
+  text: "Ttest",
+  slug: "ruby-test",
+  category_id: "ruby")

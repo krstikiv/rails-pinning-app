@@ -13,11 +13,17 @@ class CreateCategories < ActiveRecord::Migration
       Category.create(name: "unknown")
     end
     
+    if Category.all.nil?
+      Category.create(name: "ruby")
+      Category.create(name: "rails")
+      Category.create(name: "unknown")
+    end
+
     unknown_category = Category.find_by_name("unknown")
     pins = Pin.where("category_id is null")
     
     pins.each do |pin|
-      category = Category.find_by_name(pin.resource_type)
+      category = Category.find_by_name(pin.category_id)
       if category.present?
         pin.category_id = category.id
       else

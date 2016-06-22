@@ -1,0 +1,36 @@
+<div class="header">
+  <h1>User Login</h1>
+</div>
+<hr/>
+<div class="panel panel-default">
+	<div class="panel-heading">Please sign in:</div>
+	<div class="panel-body">
+		<% if !@errors.nil? %>
+			<div class="alert alert-danger" role="alert"><p><b>Incorrect login:</b></p>
+				<ul>
+					<li><%= @errors %></li>
+				</ul>
+			</div>
+		<% end %>
+		<%= form_tag('/login', class: 'col-md-8 form-horizontal') do %>
+			<div class="form-group">
+				<label for="email" class="col-md-2 control-label">Email:</label>
+				<div class="col-md-4">
+					<%= email_field_tag 'email', nil, placeholder: 'email@example.com', class: 'form-control' %>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="password" class="col-md-2 control-label">Password:</label>
+				<div class="col-md-4">
+					<%= password_field_tag 'password', nil, class: 'form-control' %>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-md-2"></div>
+				<div class="col-md-4">
+					<%= button_tag "Sign in", data: { disable_with: 'Please wait...' }, class: 'btn btn-default' %>
+				</div>
+			</div>
+		<% end %>
+	</div>
+</div>
