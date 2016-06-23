@@ -95,8 +95,8 @@ class UsersController < ApplicationController
   end
 
   def require_login
-    if current_user.nil?
-      redirect_to :login
+    if !logged_in?
+      redirect_to login_path
     end
   end
 
