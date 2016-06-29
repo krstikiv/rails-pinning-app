@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :boards
+
   resources :users, except: [:index]
 
   # The priority is based upon order of creation: first created -> highest priority.
@@ -9,16 +11,20 @@ Rails.application.routes.draw do
   #edit pin's id to use slug
   get "pins/name-:slug" => "pins#show_by_name", as: 'pin_by_name'
 
+  get 'signup' => "users#new", as: :signup
+
+  get 'login' => 'users#login', as: :login
+
+  post "/login" => "users#authenticate"
+
+  delete 'logout/:id' => "users#logout", as: :logout
+
+  post "pins/repin/:id" => "pins#repin", as: 'repin'
+
   resources :pins
 
   get '/library' => 'pins#index'
 
-  get 'signup' => "users#new", as: :signup
-  
-  get 'login' => 'users#login', as: :login
-  post "/login" => "users#authenticate"
-
-  delete 'logout/:id' => "users#logout", as: :logout
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
