@@ -1,6 +1,13 @@
-<h1>Editing Board</h1>
-
-<%= render 'form' %>
+<div class="header">a
+	<h1>Editing Board</h1>
+</div>
+<hr/>
+<div class="panel panel-default">
+  <div class="panel-heading">Edit Board</div>
+  <div class="panel-body">
+	<%= render 'form' %>
+  </div>
+</div>
 
 <%= link_to 'Show', @board %> |
 <%= link_to 'Back', boards_path %>
