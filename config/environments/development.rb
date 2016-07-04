@@ -48,6 +48,7 @@ Rails.application.configure do
     :bucket => "skillcrush-rails",
     :access_key_id => "AKIAI4Y7CIUPPOFAYN2Q",
     :secret_access_key => "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"
+    :s3_region => 'us-east-1'
   }
 }
 end

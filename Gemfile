@@ -35,7 +35,7 @@ gem 'puma'
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
 gem 'rails_12factor'
-gem 'paperclip'
+gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git" 
 gem 'aws-sdk', '~> 2'
 gem 'bcrypt', '~> 3.1.7'
 # Access an IRB console on exception pages or by using <%= console %> in views
